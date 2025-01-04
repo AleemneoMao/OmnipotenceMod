@@ -17,7 +17,7 @@ namespace OmnipotenceMod
         public override void OnLoad(Harmony harmony)
         {
             base.OnLoad(harmony);
-            Traverse.Create(typeof(DUPLICANTSTATS)).Field<int>("APTITUDE_BONUS").Value = 10;// 学习兴趣技能士气+10
+            Traverse.Create(typeof(DUPLICANTSTATS)).Field<int>("APTITUDE_BONUS").Value = 15;// 学习兴趣技能士气+15
             Traverse.Create(typeof(DUPLICANTSTATS)).Field<int>("MAX_TRAITS").Value = 2;// 最大特质为2
             Traverse.Create(typeof(DUPLICANTSTATS)).Field<int[]>("APTITUDE_ATTRIBUTE_BONUSES").Value = new int[]
             {
@@ -26,11 +26,13 @@ namespace OmnipotenceMod
                 40,
                 40
             };//技能点数
-            Traverse.Create(typeof(DUPLICANTSTATS.ATTRIBUTE_LEVELING)).Field<float>("FULL_EXPERIENCE").Value = 5f;// 经验获取倍率2倍
-            Traverse.Create(typeof(DUPLICANTSTATS.ATTRIBUTE_LEVELING)).Field<int>("MAX_GAINED_ATTRIBUTE_LEVEL").Value = 80;// 最大等级
+            Traverse.Create(typeof(DUPLICANTSTATS.ATTRIBUTE_LEVELING)).Field<int>("MAX_GAINED_ATTRIBUTE_LEVEL").Value = 80;// 最大等级80级
+            Traverse.Create(typeof(DUPLICANTSTATS.ATTRIBUTE_LEVELING)).Field<int>("TARGET_MAX_LEVEL_CYCLE").Value = 200;// 最大等级周期
+            Traverse.Create(typeof(DUPLICANTSTATS.ATTRIBUTE_LEVELING)).Field<float>("EXPERIENCE_LEVEL_POWER").Value = 1f;// 经验升级幂数
+            Traverse.Create(typeof(DUPLICANTSTATS.ATTRIBUTE_LEVELING)).Field<float>("FULL_EXPERIENCE").Value = 10f;// 经验获取倍率10倍
             Traverse.Create(typeof(ROLES)).Field<float>("BASIC_ROLE_MASTERY_EXPERIENCE_REQUIRED").Value = 200f;// 获取技能点的经验，越小越快
             Traverse.Create(typeof(SKILLS)).Field<float>("PASSIVE_EXPERIENCE_PORTION").Value = 1f;// 被动经验获倍率，越大越快
-            Traverse.Create(typeof(SKILLS)).Field<float>("FULL_EXPERIENCE").Value = 5f;// 被动经验获倍率，越大越快
+            Traverse.Create(typeof(SKILLS)).Field<float>("FULL_EXPERIENCE").Value = 10f;// 被动经验获倍率，越大越快
             Traverse.Create(typeof(EQUIPMENT.SUITS)).Field<float>("ATMOSUIT_DECAY").Value = -0.01f;// 气压服磨损
             Traverse.Create(typeof(EQUIPMENT.SUITS)).Field<float>("ATMOSUIT_THERMAL_CONDUCTIVITY_BARRIER").Value = 0.4f;// 气压服隔热厚度
             Traverse.Create(typeof(EQUIPMENT.SUITS)).Field<int>("ATMOSUIT_INSULATION").Value = 100;// 气压服隔热
@@ -70,27 +72,26 @@ namespace OmnipotenceMod
         public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instr)
         {
             List<CodeInstruction> code = instr.ToList();
-            code[10].operand = 20f;
-            code[30].operand = 20f;
-            code[50].operand = 20f;
-            code[70].operand = 20f;
-            code[90].operand = 20f;
-            code[110].operand = 20f;
-            code[130].operand = 20f;
-            code[150].operand = 20f;
-            code[170].operand = 20f;
-            code[190].operand = 20f;
-            code[210].operand = 20f;
-            code[272].operand = 20f;
-            code[293].operand = 20f;
+            code[10].operand = 40f;
+            code[30].operand = 40f;
+            code[50].operand = 40f;
+            code[70].operand = 40f;
+            code[90].operand = 40f;
+            code[110].operand = 40f;
+            code[130].operand = 40f;
+            code[150].operand = 40f;
+            code[170].operand = 40f;
+            code[190].operand = 40f;
+            code[210].operand = 40f;
+            code[272].operand = 40f;
+            code[293].operand = 40f;
             code[311].operand = 40f;
             code[520].operand = 2f;
             code[538].operand = 40f;
             code[690].operand = 1f;
             code[724].operand = 2f;
             code[744].operand = 2f;
-            code[820].operand = 20f;
-
+            code[820].operand = 40f;
             return code.AsEnumerable();
         }
     }

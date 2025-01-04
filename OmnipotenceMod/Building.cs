@@ -8,15 +8,12 @@ using TUNING;
 
 namespace OmnipotenceMod
 {
-    public class Patche_buildings//修改煤炭发电机
+    [HarmonyPatch(typeof(GeneratorConfig), "CreateBuildingDef")]
+    public class Patch_Generator
     {
-        [HarmonyPatch(typeof(GeneratorConfig), "CreateBuildingDef")]
-        public class Patch_Generator
+        public static void Postfix(ref BuildingDef __result)
         {
-            public static void Postfix(ref BuildingDef __result)
-            {
-                __result.GeneratorWattageRating = 30000f;// 修改发电
-            }
+            __result.GeneratorWattageRating = 30000f;// 修改发电
         }
     }
 }
