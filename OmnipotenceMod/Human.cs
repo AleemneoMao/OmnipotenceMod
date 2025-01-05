@@ -42,6 +42,8 @@ namespace OmnipotenceMod
                 Traverse.Create(typeof(EQUIPMENT.SUITS)).Field<int>("ATMOSUIT_ATHLETICS").Value = -2;// 气压服运动加成
                 Traverse.Create(typeof(EQUIPMENT.SUITS)).Field<int>("ATMOSUIT_DIGGING").Value = 20;// 气压服挖掘加成
                 Traverse.Create(typeof(EQUIPMENT.SUITS)).Field<int>("ATMOSUIT_CONSTRUCTION").Value = 20;// 气压服建造加成
+                Traverse.Create(typeof(ROCKETRY)).Field<float>("MASS_PENALTY_EXPONENT").Value = 1f;// 火箭超重惩罚
+                Traverse.Create(typeof(ROCKETRY.OXIDIZER_EFFICIENCY)).Field<float>("HIGH").Value = 2f;// 火箭液氧效率
                 harmony.PatchAll();
             }
         }

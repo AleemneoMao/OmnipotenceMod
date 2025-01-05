@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using HarmonyLib;
 using UnityEngine;
+using TUNING;
 using static STRINGS.BUILDINGS.PREFABS;
 using static STRINGS.DUPLICANTS.CHORES;
 
@@ -62,6 +63,16 @@ namespace OmnipotenceMod
             {
                 go.AddOrGet<TravelTubeEntrance>().joulesPerLaunch = 5000f;
                 go.AddOrGet<TravelTubeEntrance>().jouleCapacity = 80000f;
+            }
+        }
+
+        [HarmonyPatch(typeof(InsulationTileConfig), "CreateBuildingDef")]// 隔热砖
+        public class Patch_InsulationTile
+        {
+            public static void Postfix(ref BuildingDef __result)
+            {
+                __result.BaseDecor = (float)BUILDINGS.DECOR.BONUS.TIER2.amount;// 隔热砖装饰加成
+                __result.BaseDecorRadius = (float)BUILDINGS.DECOR.BONUS.TIER2.radius;// 隔热砖装饰加成范围
             }
         }
     }

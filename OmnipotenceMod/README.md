@@ -10,6 +10,10 @@ Geyser 修改间歇泉
 
 Human 修改复制人
 
+OtherBudling 修改其他建筑
+
+Plant 修改植物
+
 PowerBudling 修改电力建筑
 
 RadiationBudling 修改辐射建筑
@@ -17,6 +21,8 @@ RadiationBudling 修改辐射建筑
 Rocket 修改火箭
 
 RoomType 修改房间系统
+
+Station 修改站台
 
 Transport 修改梯子和运载器
 
