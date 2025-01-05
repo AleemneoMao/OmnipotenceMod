@@ -8,7 +8,9 @@ using HarmonyLib;
 
 namespace OmnipotenceMod
 {
-    [HarmonyPatch(typeof(RoomType), MethodType.Constructor, new Type[]
+    public class RoomType_o
+    {
+        [HarmonyPatch(typeof(RoomType), MethodType.Constructor, new Type[]
         {
             typeof(string),
             typeof(string),
@@ -27,23 +29,23 @@ namespace OmnipotenceMod
             typeof(int)
         })]
 
-    public static class Patch_RoomType
-    {
-        public static void Postfix(RoomType __instance)
+        public static class Patch_RoomType
         {
-            bool flag_PrivateBedroom1 = __instance.Id == "Private Bedroom";//私人卧室最小房间大小
-            if (flag_PrivateBedroom1)
+            public static void Postfix(RoomType __instance)
             {
-                for (int num_PrivateBedroom = 0; num_PrivateBedroom < __instance.additional_constraints.Length; num_PrivateBedroom++)
+                bool flag_PrivateBedroom1 = __instance.Id == "Private Bedroom";//私人卧室最小房间大小
+                if (flag_PrivateBedroom1)
                 {
-                    bool flag_PrivateBedroom2 = __instance.additional_constraints[num_PrivateBedroom] == RoomConstraints.MINIMUM_SIZE_24;
-                    if (flag_PrivateBedroom2)
+                    for (int num_PrivateBedroom = 0; num_PrivateBedroom < __instance.additional_constraints.Length; num_PrivateBedroom++)
                     {
-                        __instance.additional_constraints[num_PrivateBedroom] = RoomConstraints.MINIMUM_SIZE_12;
+                        bool flag_PrivateBedroom2 = __instance.additional_constraints[num_PrivateBedroom] == RoomConstraints.MINIMUM_SIZE_24;
+                        if (flag_PrivateBedroom2)
+                        {
+                            __instance.additional_constraints[num_PrivateBedroom] = RoomConstraints.MINIMUM_SIZE_12;
+                        }
                     }
                 }
             }
         }
     }
-
 }
