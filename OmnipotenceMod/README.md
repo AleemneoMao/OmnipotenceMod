@@ -6,6 +6,8 @@ Disease 修改疾病病毒
 
 Evaporate 修改挥发物质
 
+FoodBuilding 修改食物建筑
+
 Geyser 修改间歇泉
 
 Human 修改复制人
@@ -22,7 +24,7 @@ Rocket 修改火箭
 
 RoomType 修改房间系统
 
-Station 修改站台
+StationBuilding 修改站台
 
 Transport 修改梯子和运载器
 
