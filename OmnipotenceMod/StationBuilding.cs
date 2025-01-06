@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace OmnipotenceMod
 {
-    public class Station_o
+    public class StationBuilding_o
     {
         [HarmonyPatch(typeof(ResearchCenterConfig), "CreateBuildingDef")]// 修改基础研究站
         public class Patch_ResearchCenterConfig

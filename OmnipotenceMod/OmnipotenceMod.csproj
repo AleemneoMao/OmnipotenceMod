@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Box.cs" />
+    <Compile Include="FoodBuilding.cs" />
     <Compile Include="OtherBuilding.cs" />
     <Compile Include="Plant.cs" />
     <Compile Include="PowerBuilding.cs" />
@@ -68,7 +69,7 @@
     <Compile Include="RadiationBuilding.cs" />
     <Compile Include="Rocket.cs" />
     <Compile Include="RoomType.cs" />
-    <Compile Include="Station.cs" />
+    <Compile Include="StationBuilding.cs" />
     <Compile Include="Transport.cs" />
     <Compile Include="Wire.cs" />
   </ItemGroup>
