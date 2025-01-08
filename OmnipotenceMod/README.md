@@ -20,6 +20,8 @@ PowerBudling 修改电力建筑
 
 RadiationBudling 修改辐射建筑
 
+RefineBudling 修改精炼建筑
+
 Rocket 修改火箭
 
 RoomType 修改房间系统
