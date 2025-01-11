@@ -10,27 +10,22 @@ namespace OmnipotenceMod
 {
     public class Evaporate_o
     {
-        [HarmonyPatch(typeof(DirtyWaterConfig), "CreatePrefab")]// 污染水
+        [HarmonyPatch(typeof(DirtyWaterConfig))]// 污染水
+        [HarmonyPatch("CreatePrefab")]
         public class Patch_DirtyWater
         {
             public static void Postfix(GameObject __result, DirtyWaterConfig __instance)
             {
-                if (__result != null)
-                {
-                    Sublimates sublimates = __result.GetComponent<Sublimates>();
-                    if (sublimates != null)
-                    {
-                        sublimates.info = new Sublimates.Info(
-                            0f,// 修改污染水排放
-                            0f,
-                            1.8f,
-                            1f,
-                            __instance.SublimeElementID,
-                            byte.MaxValue,
-                            0
-                        );
-                    }
-                }
+                Sublimates sublimates = __result.GetComponent<Sublimates>();
+                sublimates.info = new Sublimates.Info(
+                    0f,// 修改污染水排放
+                    0f,
+                    0f,
+                    0.5f,
+                    SimHashes.Oxygen,
+                    byte.MaxValue,
+                    0
+                );
             }
         }
 
@@ -48,9 +43,9 @@ namespace OmnipotenceMod
                         sublimates.info = new Sublimates.Info(
                             0f,// 修改污染土排放
                             0f,
-                            1.8f,
+                            0f,
                             0.5f,
-                            __instance.SublimeElementID,
+                            SimHashes.Oxygen,
                             byte.MaxValue,
                             0
                         );
@@ -73,9 +68,9 @@ namespace OmnipotenceMod
                         sublimates.info = new Sublimates.Info(
                             0f,// 修改菌泥排放
                             0f,
-                            1.8f,
+                            0f,
                             0.5f,
-                            __instance.SublimeElementID,
+                            SimHashes.Oxygen,
                             byte.MaxValue,
                             0
                         );
@@ -98,7 +93,7 @@ namespace OmnipotenceMod
                         sublimates.info = new Sublimates.Info(
                             0f,// 修改漂白石排放
                             0f,
-                            1.8f,
+                            0f,
                             0.5f,
                             __instance.SublimeElementID,
                             byte.MaxValue,

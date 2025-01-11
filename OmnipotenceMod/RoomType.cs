@@ -45,6 +45,19 @@ namespace OmnipotenceMod
                         }
                     }
                 }
+
+                bool flag_PlumbedBathroom1 = __instance.Id == "PlumbedBathroom";//浴室最小房间大小
+                if (flag_PlumbedBathroom1)
+                {
+                    for (int num_PlumbedBathroom = 0; num_PlumbedBathroom < __instance.additional_constraints.Length; num_PlumbedBathroom++)
+                    {
+                        bool flag_PlumbedBathroom2 = __instance.additional_constraints[num_PlumbedBathroom] == RoomConstraints.MAXIMUM_SIZE_64;
+                        if (flag_PlumbedBathroom2)
+                        {
+                            __instance.additional_constraints[num_PlumbedBathroom] = RoomConstraints.MAXIMUM_SIZE_96;
+                        }
+                    }
+                }
             }
         }
     }

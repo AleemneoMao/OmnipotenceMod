@@ -68,15 +68,6 @@ namespace OmnipotenceMod
             }
         }
 
-        [HarmonyPatch(typeof(CeilingLightConfig), "DoPostConfigurePreview")]//修改吸顶灯
-        public class Patch_CeilingLightConfig
-        {
-            public static void Postfix(BuildingDef def, GameObject go)
-            {
-                go.AddComponent<LightShapePreview>().lux = 5000;
-            }
-        }
-
         [HarmonyPatch(typeof(CeilingLightConfig), "DoPostConfigureComplete")]//修改吸顶灯
         public class Patch_CeilingLight
         {
@@ -98,30 +89,12 @@ namespace OmnipotenceMod
             }
         }
 
-        [HarmonyPatch(typeof(SunLampConfig), "DoPostConfigurePreview")]//修改电灯
-        public class Patch_SunLampPreview
-        {
-            public static void Postfix(BuildingDef def, GameObject go)
-            {
-                go.AddComponent<LightShapePreview>().lux = 20000;
-            }
-        }
-
         [HarmonyPatch(typeof(SunLampConfig), "DoPostConfigureComplete")]//修改日光灯
         public class Patch_SunLamp
         {
             public static void Postfix(GameObject go)
             {
                 go.AddOrGet<Light2D>().Lux = 20000;
-            }
-        }
-
-        [HarmonyPatch(typeof(FloorLampConfig), "DoPostConfigurePreview")]//修改电灯
-        public class Patch_FloorLampConfig
-        {
-            public static void Postfix(BuildingDef def, GameObject go)
-            {
-                go.AddComponent<LightShapePreview>().lux = 10000;
             }
         }
 
@@ -229,6 +202,27 @@ namespace OmnipotenceMod
                 go.AddOrGet<OilWellCap>().addGasRate = 0f;
                 go.AddOrGet<OilWellCap>().maxGasPressure = 80.00001f;
                 go.AddOrGet<OilWellCap>().releaseGasRate = 0f;
+            }
+        }
+
+        [HarmonyPatch(typeof(LogicDuplicantSensorConfig), "DoPostConfigureComplete")]//修改复制人传感器
+        public class Patch_LogicDuplicantSensor
+        {
+            public static void Postfix(GameObject go)
+            {
+                go.AddOrGet<LogicDuplicantSensor>().pickupRange = 6;
+            }
+        }
+
+        [HarmonyPatch(typeof(LogicDuplicantSensorConfig), "AddVisualizer")]//修改复制人传感器
+        public class Patch_LogicDuplicantSensorConfig
+        {
+            public static void Postfix(GameObject prefab, bool movable)
+            {
+                prefab.AddOrGet<RangeVisualizer>().RangeMin.x = -3;
+                prefab.AddOrGet<RangeVisualizer>().RangeMin.y = -0;
+                prefab.AddOrGet<RangeVisualizer>().RangeMax.x = 3;
+                prefab.AddOrGet<RangeVisualizer>().RangeMax.y = 6;
             }
         }
     }
