@@ -20,7 +20,7 @@ namespace OmnipotenceMod
             public override void OnLoad(Harmony harmony)
             {
                 base.OnLoad(harmony);
-                Traverse.Create(typeof(DUPLICANTSTATS)).Field<int>("APTITUDE_BONUS").Value = 15;// 学习兴趣技能士气+15
+                Traverse.Create(typeof(DUPLICANTSTATS)).Field<int>("APTITUDE_BONUS").Value = 20;// 学习兴趣技能士气+15
                 Traverse.Create(typeof(DUPLICANTSTATS)).Field<int>("MAX_TRAITS").Value = 2;// 最大特质为2
                 Traverse.Create(typeof(DUPLICANTSTATS)).Field<int[]>("APTITUDE_ATTRIBUTE_BONUSES").Value = new int[]
                 {
@@ -97,7 +97,7 @@ namespace OmnipotenceMod
                 code[90].operand = 40f;
                 code[110].operand = 40f;
                 code[130].operand = 40f;
-                code[150].operand = 40f;
+                code[150].operand = 60f;
                 code[170].operand = 40f;
                 code[190].operand = 40f;
                 code[210].operand = 40f;
