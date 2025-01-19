@@ -26,7 +26,7 @@ namespace OmnipotenceMod
                     new PlantElementAbsorber.ConsumeInfo
                     {
                         tag = GameTags.Dirt,
-                        massConsumptionRate = 0.008333334f
+                        massConsumptionRate = 0.001666667f
                     }
                 });
                 EntityTemplates.ExtendPlantToIrrigated(__result, new PlantElementAbsorber.ConsumeInfo[]
@@ -34,7 +34,7 @@ namespace OmnipotenceMod
                     new PlantElementAbsorber.ConsumeInfo
                     {
                         tag = GameTags.Water,
-                        massConsumptionRate = 0.033333335f
+                        massConsumptionRate = 0.008333334f
                     }
                 });
             }
@@ -56,7 +56,7 @@ namespace OmnipotenceMod
                     new PlantElementAbsorber.ConsumeInfo
                     {
                         tag = GameTags.Water,
-                        massConsumptionRate = 0.033333335f
+                        massConsumptionRate = 0.008333334f
                     }
                 });
             }
@@ -86,7 +86,31 @@ namespace OmnipotenceMod
                     new PlantElementAbsorber.ConsumeInfo
                     {
                         tag = SimHashes.BleachStone.CreateTag(),
-                        massConsumptionRate = 0.00083333335f
+                        massConsumptionRate = 0.0001666667f
+                    }
+                });
+            }
+        }
+
+        [HarmonyPatch(typeof(BasicFabricMaterialPlantConfig), "CreatePrefab")]// 芦苇
+        public static class Patch_BasicFabricMaterialPlant
+        {
+            public static void Postfix(GameObject __result)
+            {
+                EntityTemplates.ExtendEntityToBasicPlant(__result, 248.15f, 295.15f, 310.15f, 398.15f, new SimHashes[]
+                {
+                    SimHashes.Oxygen,
+                    SimHashes.ContaminatedOxygen,
+                    SimHashes.CarbonDioxide,
+                    SimHashes.DirtyWater,
+                    SimHashes.Water
+                }, false, 0f, 0.15f, "BasicFabric", false, true, true, true, 5f, 0f, 4600f, BasicFabricMaterialPlantConfig.ID + "Original", global::STRINGS.CREATURES.SPECIES.BASICFABRICMATERIALPLANT.NAME);
+                EntityTemplates.ExtendPlantToIrrigated(__result, new PlantElementAbsorber.ConsumeInfo[]
+                {
+                    new PlantElementAbsorber.ConsumeInfo
+                    {
+                        tag = GameTags.DirtyWater,
+                        massConsumptionRate = 0.03333334f
                     }
                 });
             }

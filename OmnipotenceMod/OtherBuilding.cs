@@ -68,6 +68,17 @@ namespace OmnipotenceMod
             }
         }
 
+        [HarmonyPatch(typeof(CeilingLightConfig), "CreateBuildingDef")]//修改吸顶灯
+        public class Patch_CeilingLightConfig
+        {
+            public static void Postfix(ref BuildingDef __result)
+            {
+                __result.SelfHeatKilowattsWhenActive = 0.125f;
+                __result.ExhaustKilowattsWhenActive = 0.125f;
+
+            }
+        }
+
         [HarmonyPatch(typeof(CeilingLightConfig), "DoPostConfigureComplete")]//修改吸顶灯
         public class Patch_CeilingLight
         {

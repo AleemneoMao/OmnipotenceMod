@@ -95,11 +95,7 @@ namespace OmnipotenceMod
         {
             public static void Postfix(GameObject go, Tag prefab_tag)
             {
-                go.AddOrGet<Storage>().capacityKg = 2000f;
-                go.AddOrGet<ElementConverter>().consumedElements = new ElementConverter.ConsumedElement[]
-                {
-                    new ElementConverter.ConsumedElement(CosmicResearchCenterConfig.INPUT_MATERIAL, 0.01f, true)
-                };
+                go.AddOrGet<ResearchCenter>().mass_per_point = 0.5f;
             }
         }
 
@@ -118,11 +114,7 @@ namespace OmnipotenceMod
         {
             public static void Postfix(GameObject go, Tag prefab_tag)
             {
-                go.AddOrGet<Storage>().capacityKg = 2000f;
-                go.AddOrGet<ElementConverter>().consumedElements = new ElementConverter.ConsumedElement[]
-                {
-                    new ElementConverter.ConsumedElement(CosmicResearchCenterConfig.INPUT_MATERIAL, 0.01f, true)
-                };
+                go.AddOrGet<ResearchCenter>().mass_per_point = 0.5f;
             }
         }
 

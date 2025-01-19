@@ -98,7 +98,7 @@ namespace OmnipotenceMod
                 };
                 ComplexRecipe.RecipeElement[] array9 = new ComplexRecipe.RecipeElement[]
                 {
-                    new ComplexRecipe.RecipeElement("Meat", 2f)
+                    new ComplexRecipe.RecipeElement("Meat", 1f)
                 };
                 ComplexRecipe.RecipeElement[] array10 = new ComplexRecipe.RecipeElement[]
                 {

@@ -18,7 +18,7 @@ namespace OmnipotenceMod
             public static void Postfix(GameObject go)
             {
                 Storage storage = go.AddOrGet<Storage>();
-                storage.capacityKg = 100000f;
+                storage.capacityKg = 1000000f;
             }
         }
 
@@ -29,6 +29,7 @@ namespace OmnipotenceMod
             {
                 Storage storage = BuildingTemplates.CreateDefaultStorage(go, false);
                 storage.capacityKg = 50000f;
+                go.AddOrGet<ConduitConsumer>().capacityKG = storage.capacityKg;
             }
         }
 
